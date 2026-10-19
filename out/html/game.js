@@ -108,7 +108,462 @@
       document.body.classList.add('dark-mode');
       window.dendryUI.saveSettings();
   };
+  window.displayText = function (text) {
+        return applyWholesome(text);
+    };
+  
+    //To get a value 
+    function getRelationshipText(value) {
+        if (value === undefined || value === null) return '';
+        if (value <= 5) return '<span style="color: #FF0000;">Hostile</span>';
+        if (value <= 14.9) return '<span style="color: #FF4500;">Frigid</span>';
+        if (value <= 29.9) return '<span style="color: #FF8C00;">Cold</span>';
+        if (value <= 39.9) return '<span style="color: #FFA500;">Cool</span>';
+        if (value <= 54.9) return '<span style="color: #FFD700;">Neutral</span>';
+        if (value <= 64.9) return '<span style="color: #9ACD32;">Warm</span>';
+        if (value <= 74.9) return '<span style="color: #32CD32;">Friendly</span>';
+        return '<span style="color: #008000;">Very friendly</span>';
+    }
 
+    function getStatusText(value) {
+        if (value === undefined || value === null) return '';
+        if (value === 0) return '<span style="color: #9E9E9E;">Not Formed</span>';
+        if (value === 1) return '<span style="color: #8B0000;">Active</span>';
+        if (value === 2) return '<span style="color: #4F6F8F;">Disbanded</span>';
+        if (value === 3) return '<span style="color: #556B2F;">Disarmed</span>';
+        if (value === 4) return '<span style="color: #6A0DAD;">Amalgamated into the ENLF</span>';
+        return 'Unknown';
+    }
+  
+    function getSizeText(value) {
+        if (value === undefined || value === null) return '';
+        if (value <= 20) return '<span style="color: #6B7280;">Minimal</span>';
+        if (value <= 40) return '<span style="color: #8B6F47;">Weak</span>';
+        if (value <= 60) return '<span style="color: #556B2F;">Moderate</span>';
+        if (value <= 80) return '<span style="color: #7A0000;">Strong</span>';
+        return '<span style="color: #2B0000;">Very Strong</span>';
+    }
+  
+    function getMilitancyText(value) {
+        if (value === undefined || value === null) return 'Unknown';
+        if (value <= 0.05) return '<span style="color: #008000;">Nonexistent</span>';
+        if (value <= 0.14) return '<span style="color: #32CD32;">Very low</span>';
+        if (value <= 0.24) return '<span style="color: #9ACD32;">Low</span>';
+        if (value <= 0.44) return '<span style="color: #FFD700;">Medium-low</span>';
+        if (value <= 0.69) return '<span style="color: #FFA500;">Medium</span>';
+        if (value <= 1) return '<span style="color: #FF4500;">High</span>';
+        return '<span style="color: #FF0000;">Very high</span>';
+    }
+    
+    function getLoyaltyText(value) {
+        if (value === undefined || value === null) return 'Unknown';
+        if (value <= 0.06) return '<span style="color: #FF0000;">Completely disloyal</span>';
+        if (value <= 0.19) return '<span style="color: #FF4500;">Very disloyal</span>';
+        if (value <= 0.31) return '<span style="color: #FF8C00;">Generally disloyal</span>';
+        if (value <= 0.41) return '<span style="color: #FFA500;">Mostly disloyal</span>';
+        if (value <= 0.54) return '<span style="color: #FFD700;">Divided</span>';
+        if (value <= 0.71) return '<span style="color: #9ACD32;">Mostly loyal</span>';
+        if (value <= 0.95) return '<span style="color: #32CD32;">Generally loyal</span>';
+        return '<span style="color: #008000;">Completely loyal</span>';
+    }
+  
+    function getIdeologyText(value) {
+        if (value === undefined || value === null) return 'Unknown';
+        if (value == 0) return '<span style="color: #8B0000;">Revolutionary Socialism</span>';
+        if (value == 1) return '<span style="color: #FF0000;">Marxism-Leninism</span>';
+        if (value == 2) return '<span style="color: #E34234;">Democratic Socialism</span>';
+        if (value == 3) return '<span style="color: #CD5C5C;">Left-wing Nationalism</span>';
+        if (value == 4) return '<span style="color: #B22222;">Trotskyism</span>';
+        if (value == 5) return '<span style="color: #FF8C00;">Sinhalese Buddhist Nationalism</span>';
+        if (value == 6) return '<span style="color: #9932CC;">Federalism</span>';
+        if (value == 7) return '<span style="color: #DAA520;">Tamil Eelam Separatism</span>';
+        if (value == 8) return '<span style="color: #D2691E;">Indian Tamil Rights</span>';
+        if (value == 9) return '<span style="color: #20B2AA;">Muslim Minority Politics</span>';
+        if (value == 10) return '<span style="color: #FF69B4;">Social Democracy</span>';
+        if (value == 11) return '<span style="color: #FFA500;">Tamil Nationalism</span>';
+        if (value == 12) return '<span style="color: #FF6347;">Left Wing Populism</span>';
+        if (value == 13) return '<span style="color: #228B22;">Conservatism</span>';
+        if (value == 14) return '<span style="color: #32CD32;">Neo Liberalism</span>';
+        if (value == 15) return '<span style="color: #800080;">Anti-Imperialism</span>';
+        if (value == 16) return '<span style="color: #2E0854;">Unitary Stateism</span>';
+        return 'Unknown';
+    }
+
+    function getStrenghtText(value) {
+        if (value === undefined || value === null) return 'Unknown';
+        if (value < 10) return '<span style="color: #ADD8E6;">Weak</span>';
+        if (value < 25) return '<span style="color: #6495ED;">Moderate</span>';
+        if (value < 40) return '<span style="color: #4169E1;">Strong</span>';
+        if (value < 60) return '<span style="color: #0000CD;">Very strong</span>';
+        return '<span style="color: #00008B;">Dominant</span>';
+    }
+
+    function getDissentText(value) {
+        if (value === undefined || value === null) return 'Unknown';
+        if (value < 4.999) return '<span style="color: #008000;">Very low</span>';
+        if (value < 14.999) return '<span style="color: #9ACD32;">Low</span>';
+        if (value < 30.999) return '<span style="color: #FFD700;">Medium</span>';
+        if (value < 49.999) return '<span style="color: #FF4500;">High</span>';
+        return '<span style="color: #FF0000;">Very high</span>';
+    }
+  
+    //To check if extra dynamic or not
+    function getDynamicTooltipContent(searchString, baseTooltip) {
+        var Q = window.dendryUI && window.dendryUI.dendryEngine && window.dendryUI.dendryEngine.state ? 
+                window.dendryUI.dendryEngine.state.qualities : null;
+        
+        if (!Q) return baseTooltip.explanationText;
+
+        if (searchString === 'Sinhalese' && Q.sinhala_proportion !== undefined) {
+            var proptext = Q.sinhala_proportion;
+            return baseTooltip.explanationText + '<br>' + proptext + '% of the population';
+        }
+
+        if (searchString === 'Sri Lankan Tamil' && Q.sltamil_proportion !== undefined) {
+            var proptext = Q.sltamil_proportion;
+            return baseTooltip.explanationText + '<br>' + proptext + '% of the population';
+        }
+
+        if (searchString === 'Tamil' && Q.sltamil_proportion !== undefined) {
+            var proptext = Q.sltamil_proportion;
+            return baseTooltip.explanationText + '<br>' + proptext + '% of the population';
+        }
+
+        if (searchString === 'Indian Tamil' && Q.itamil_proportion !== undefined) {
+            var proptext = Q.itamil_proportion;
+            return baseTooltip.explanationText + '<br>' + proptext + '% of the population';
+        }
+
+        if (searchString === 'Muslims' && Q.muslim_proportion !== undefined) {
+            var proptext = Q.muslim_proportion;
+            return baseTooltip.explanationText + '<br>' + proptext + '% of the population';
+        }
+        
+        if (searchString === 'SLPP' && Q.slpp_relation !== undefined) {
+            var relationText = getRelationshipText(Q.slpp_relation);
+            var ideologyText = getIdeologyText(Q.slpp_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+
+        if (searchString === 'Left' ) {
+            var strenghtText = getStrenghtText(Q.left_strength);
+            var dissentText = getDissentText(Q.left_dissent);
+            return baseTooltip.explanationText + '<br>Strength: ' + strenghtText + '<br>Dissent: ' + dissentText;
+        }
+
+        if (searchString === 'Nationalists' ) {
+            var strenghtText = getStrenghtText(Q.nationalist_strength);
+            var dissentText = getDissentText(Q.nationalist_dissent);
+            return baseTooltip.explanationText + '<br>Strength: ' + strenghtText + '<br>Dissent: ' + dissentText;
+        }
+      
+        if (searchString === 'SLMP' && Q.slmp_relation !== undefined) {
+            var relationText = getRelationshipText(Q.slmp_relation);
+            var ideologyText = getIdeologyText(Q.slmp_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+      
+        if (searchString === 'UNP' && Q.unp_relation !== undefined) {
+            var relationText = getRelationshipText(Q.unp_relation);
+            var ideologyText = getIdeologyText(Q.unp_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'TULF' && Q.tulf_relation !== undefined) {
+            var relationText = getRelationshipText(Q.tulf_relation);
+            var ideologyText = getIdeologyText(Q.tulf_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'PFLT' && Q.pflt_relation !== undefined) {
+            var relationText = getRelationshipText(Q.pflt_relation);
+            var ideologyText = getIdeologyText(Q.pflt_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'ACTC' && Q.actc_relation !== undefined) {
+            var relationText = getRelationshipText(Q.actc_relation);
+            var ideologyText = getIdeologyText(Q.actc_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'DPLF' && Q.dplf_relation !== undefined) {
+            var relationText = getRelationshipText(Q.dplf_relation);
+            var ideologyText = getIdeologyText(Q.dplf_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'JVP' && Q.jvp_relation !== undefined) {
+            var relationText = getRelationshipText(Q.jvp_relation);
+            var ideologyText = getIdeologyText(Q.jvp_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'NPP' && Q.npp_relation !== undefined) {
+            var relationText = getRelationshipText(Q.npp_relation);
+            var ideologyText = getIdeologyText(Q.npp_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+
+        if (searchString === 'UCPF' && Q.ucpf_relation !== undefined) {
+            var relationText = getRelationshipText(Q.ucpf_relation);
+            var ideologyText = getIdeologyText(Q.ucpf_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+
+        if (searchString === 'ULPP' && Q.ulpp_relation !== undefined) {
+            var relationText = getRelationshipText(Q.ulpp_relation);
+            var ideologyText = getIdeologyText(Q.ulpp_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+
+        if (searchString === 'DUNF' && Q.dunf_relation !== undefined) {
+            var relationText = getRelationshipText(Q.dunf_relation);
+            var ideologyText = getIdeologyText(Q.dunf_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'CPSL' && Q.cpsl_relation !== undefined) {
+            var relationText = getRelationshipText(Q.cpsl_relation);
+            var ideologyText = getIdeologyText(Q.cpsl_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'LSSP' && Q.lssp_relation !== undefined) {
+            var relationText = getRelationshipText(Q.lssp_relation);
+            var ideologyText = getIdeologyText(Q.lssp_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'NSSP' && Q.nssp_relation !== undefined) {
+            var relationText = getRelationshipText(Q.nssp_relation);
+            var ideologyText = getIdeologyText(Q.nssp_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'MEP' && Q.mep_relation !== undefined) {
+            var relationText = getRelationshipText(Q.mep_relation);
+            var ideologyText = getIdeologyText(Q.mep_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'CWC' && Q.cwc_relation !== undefined) {
+            var relationText = getRelationshipText(Q.cwc_relation);
+            var ideologyText = getIdeologyText(Q.cwc_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+        
+        if (searchString === 'SLMC' && Q.slmc_relation !== undefined) {
+            var relationText = getRelationshipText(Q.slmc_relation);
+            var ideologyText = getIdeologyText(Q.slmc_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        }
+
+        if (searchString === 'JSS' && Q.jss_strength !== undefined) {
+            var strength = getSizeText(Q.jss_strength);
+            var status = getStatusText(Q.jss_gstatus);
+            var militancy = getMilitancyText(Q.jss_militancy);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+        }
+     
+        if (searchString === 'LTTE' && Q.ltte_strength !== undefined) {
+            var strength = getSizeText(Q.ltte_strength);
+            var militancy = getMilitancyText(Q.ltte_militancy);
+            var status = getStatusText(Q.ltte_gstatus);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+        }
+        
+        if (searchString === 'TELO' && Q.telo_strength !== undefined) {
+            var strength = getSizeText(Q.telo_strength);
+            var status = getStatusText(Q.telo_gstatus);
+            var militancy = getMilitancyText(Q.telo_militancy);
+            var content = baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+            if (Q.telo_gstatus === 3) {
+                var ideologyText = getIdeologyText(Q.telo_ideology);
+                var relationText = getRelationshipText(Q.telo_relation);
+                content += '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+            }
+            return content;
+        }
+        
+        if (searchString === 'EPRLF' && Q.eprlf_strength !== undefined) {
+            var strength = getSizeText(Q.eprlf_strength);
+            var status = getStatusText(Q.eprlf_gstatus);
+            var militancy = getMilitancyText(Q.eprlf_militancy);
+            var content = baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+            if (Q.eprlf_gstatus === 3) {
+                var ideologyText = getIdeologyText(Q.eprlf_ideology);
+                var relationText = getRelationshipText(Q.eprlf_relation);
+                content += '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+            }
+            return content;
+        }
+
+        if (searchString === 'EROS' && Q.eros_relation !== undefined) {
+            var strength = getSizeText(Q.eros_strength);
+            var status = getStatusText(Q.eros_gstatus);
+            var militancy = getMilitancyText(Q.eros_militancy);
+            var content = baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+            if (Q.eros_gstatus === 3) {
+                var ideologyText = getIdeologyText(Q.eros_ideology);
+                var relationText = getRelationshipText(Q.eros_relation);
+                content += '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+            }
+            return content;
+        }
+        
+        if (searchString === 'PLOTE' && Q.plote_strength !== undefined) {
+            var strength = getSizeText(Q.plote_strength);
+            var militancy = getMilitancyText(Q.plote_militancy);
+            var status = getStatusText(Q.plote_gstatus);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+        }
+        
+       
+        if (searchString === 'DJV' && Q.djv_strength !== undefined) {
+            var strength = getSizeText(Q.djv_strength);
+            var militancy = getMilitancyText(Q.djv_militancy);
+            var status = getStatusText(Q.djv_gstatus);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+        }
+      
+        if (searchString === 'EPDP' && Q.epdp_strength !== undefined) {
+            var strength = getSizeText(Q.epdp_strength);
+            var militancy = getMilitancyText(Q.epdp_militancy);
+            var status = getStatusText(Q.epdp_gstatus);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+        }
+
+        if (searchString === 'PRRA' && Q.prra_strength !== undefined) {
+            var strength = getSizeText(Q.prra_strength);
+            var militancy = getMilitancyText(Q.prra_militancy);
+            var status = getStatusText(Q.prra_gstatus);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+        }
+
+        if (searchString === 'Eagles' && Q.eagles_strength !== undefined) {
+            var strength = getSizeText(Q.eagles_strength);
+            var militancy = getMilitancyText(Q.eagles_militancy);
+            var status = getStatusText(Q.eagles_gstatus);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+        }
+
+        if (searchString === 'Black Cats' && Q.blackcats_strength !== undefined) {
+            var strength = getSizeText(Q.blackcats_strength);
+            var militancy = getMilitancyText(Q.blackcats_militancy);
+            var status = getStatusText(Q.blackcats_gstatus);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+        }
+
+       if (searchString === 'ENDLF' && Q.endlf_strength !== undefined) {
+            var strength = getSizeText(Q.endlf_strength);
+            var status = getStatusText(Q.endlf_gstatus);
+            var militancy = getMilitancyText(Q.endlf_militancy);
+            var content = baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+
+            if (Q.endlf_gstatus == 3) {
+                var ideologyText = getIdeologyText(Q.endlf_ideology);
+                var relationText = getRelationshipText(Q.endlf_relation);
+                content += '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+            }
+            return content;
+        }
+
+        if (searchString === 'TNA' && Q.tna_strength !== undefined) {
+            var strength = getSizeText(Q.tna_strength);
+            var militancy = getMilitancyText(Q.tna_militancy);
+            var status = getStatusText(Q.tna_gstatus);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + '<br>Militarization: ' + militancy;
+        }
+        
+        if (searchString === 'Sri Lanka Armed Forces' && Q.slaf_strength !== undefined) {
+            var strength = Q.slaf_strength ? Q.slaf_strength : '0';
+            var morale = getLoyaltyText(Q.slaf_morale);
+            var readiness = getMilitancyText(Q.slaf_readiness)
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale + '<br>Readiness:' + readiness;
+        }
+
+        if (searchString === 'Special Task Force' && Q.stf_strength !== undefined) {
+            var strength = Q.stf_strength ? Q.stf_strength : '0';
+            var morale = getLoyaltyText(Q.stf_morale);
+            var status = getStatusText(Q.stf_gstatus);
+            var readiness = getMilitancyText(Q.stf_readiness)
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale + '<br>Readiness: ' + readiness;
+        }
+      
+        if (searchString === 'Sri Lanka Police' && Q.slp_strength !== undefined) {
+            var strength = Q.slp_strength ? Q.slp_strength : '0';
+            var morale = getLoyaltyText(Q.slp_morale);
+            var readiness = getMilitancyText(Q.slp_readiness)
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale + '<br>Readiness: ' + readiness;
+        }
+        
+        if (searchString === 'Civil Security' && Q.homeg_civilsec_strength !== undefined) {
+            var strength = Q.homeg_civilsec_strength ? Q.homeg_civilsec_strength : '0';
+            var morale = getLoyaltyText(Q.homeg_civilsec_morale);
+            var readiness = getMilitancyText(Q.homeg_civilsec_readiness)
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale + '<br>Readiness: ' + readiness;
+        }
+        
+        if (searchString === 'Home Guard' && Q.homeg_civilsec_strength !== undefined) {
+            var strength = Q.homeg_civilsec_strength ? Q.homeg_civilsec_strength : '0';
+            var morale = getLoyaltyText(Q.homeg_civilsec_morale);
+            var readiness = getMilitancyText(Q.homeg_civilsec_readiness)
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale + '<br>Readiness: ' + readiness;
+        }
+
+        if (searchString === 'IPKF' && Q.ipkf_size !== undefined) {
+            var strength = Q.ipkf_size ? Q.ipkf_morale : '0';
+            var morale = getLoyaltyText(Q.ipkf_morale);
+            var status = getStatusText(Q.ipkf_gstatus);
+            return baseTooltip.explanationText + '<br>' + status + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale;
+        }
+        
+        return baseTooltip.explanationText;
+        
+    }
+    
+    window.getDynamicTooltipContent = getDynamicTooltipContent;
+  
+    function applyWholesome(str) {
+        const allWords = new Set([
+            ...tooltipList.map(t => t.searchString),
+            ...colourList.map(c => c.word)
+        ]);
+    
+        // Escape special regex characters in the words
+        const escapedWords = [...allWords].map(word => 
+            word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        );
+        
+        const regex = new RegExp(`\\b(${escapedWords.join('|')})\\b`, 'g');
+    
+        return str.replace(/(<(?:span|strong)[^>]*>.*?<\/(?:span|strong)>|<[^>]+>|[^<]+)/g, (segment) => {
+            if (segment.startsWith('<')) return segment;
+    
+            return segment.replace(regex, (match) => {
+                const tooltip = tooltipList.find(t => t.searchString === match);
+                const colour = colourList.find(c => c.word === match);
+    
+                let style = colour ? colour.style : '';
+                let innerText = match;
+    
+                if (colour && colour.img) {
+                    innerText = `<img src="${colour.img}" class="p_icon" alt="">${innerText}`;
+                }
+    
+                if (tooltip) {
+                    var tooltipContent = getDynamicTooltipContent(match, tooltip);
+                    return `<span class='mytooltip' style='${style}'>${innerText}<span class='mytooltiptext'>${tooltipContent}</span></span>`;
+                } else if (colour) {
+                    return `<span style='${style}'>${innerText}</span>`;
+                }
+    
+                return match;
+            });
+        });
+    }
+  
   // populates the checkboxes in the options view
   window.populateOptions = function() {
     var disable_bg = window.dendryUI.disable_bg;
