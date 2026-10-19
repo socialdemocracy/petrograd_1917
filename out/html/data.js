@@ -6,6 +6,6 @@ const tooltipList = [{
 
 const colourList = [{
         word: "RSDLP (B)",
-        style: "color: var (--b-color); font-weight: bold;",
+        style: "color: var(--b); font-weight: bold;",
     }
 ];
