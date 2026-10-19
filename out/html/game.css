@@ -592,21 +592,21 @@ table {
 :root {
   --anarchist: #000000;
   --b: #8B0000;
-  --m: #E3000F;
-  --d: #fc7a82;
-  --i: #ff3c00;
-  --k: #DCCA4A;
-  --sr: #c700a2;
-  --lsr: #ff006a;
-  --rsr: #c268ff;
-  --usr: #FFBB5A;
-  --ps: #fcc761;
-  --m_n: #00780A;
-  --m_s: #76f981;
+  --m: #ff9a18;
+  --d: #dbbb70;
+  --i: #e86e48;
+  --k: #0087dc;
+  --sr: #94bc21;
+  --lsr: #aabf3d;
+  --rsr: #51d651;
+  --usr: #f3cb18;
+  --ps: #146300;
+  --m_n: #6aa32c;
+  --m_s: #c74e50;
   --j_n: #3F7BC1;
-  --other: #919191;
-  --dashnak: #fe67ff;
-  --conservative: #0030ff;
+  --other: #808080;
+  --dashnak: #308be6;
+  --conservative: #1d3496;
   --cossack: #758fff;
 }
 
