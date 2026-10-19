@@ -130,8 +130,6 @@ Budget: [+ budget +]
 
 Chair: [+ soviet_chair +] ([+ soviet_chair_party +])
 
-SLFP
-
 Executive committee: [+ exco_parties_str +]
 
 Overal composition:
