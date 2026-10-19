@@ -508,38 +508,38 @@
             ...colourList.map(c => c.word)
         ]);
     
-        // Escape special regex characters in the words
-        const escapedWords = [...allWords].map(word => 
-            word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-        );
-        
-        const regex = new RegExp((?<!\\w)(${escapedWords.join('|')})(?!\\w), 'g');
-    
-        return str.replace(/(<(?:span|strong)[^>]*>.*?<\/(?:span|strong)>|<[^>]+>|[^<]+)/g, (segment) => {
-            if (segment.startsWith('<')) return segment;
-    
-            return segment.replace(regex, (match) => {
-                const tooltip = tooltipList.find(t => t.searchString === match);
-                const colour = colourList.find(c => c.word === match);
-    
-                let style = colour ? colour.style : '';
-                let innerText = match;
-    
-                if (colour && colour.img) {
-                    innerText = `<img src="${colour.img}" class="p_icon" alt="">${innerText}`;
-                }
-    
-                if (tooltip) {
-                    var tooltipContent = getDynamicTooltipContent(match, tooltip);
-                    return `<span class='mytooltip' style='${style}'>${innerText}<span class='mytooltiptext'>${tooltipContent}</span></span>`;
-                } else if (colour) {
-                    return `<span style='${style}'>${innerText}</span>`;
-                }
-    
-                return match;
-            });
-        });
-    }
+// Escape special regex characters in the words
+const escapedWords = [...allWords].map(word =>
+    word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+);
+
+const regex = new RegExp(`(^|[^\\w])(${escapedWords.join('|')})(?=$|[^\\w])`, 'g');
+
+return str.replace(/(<(?:span|strong)[^>]*>.*?<\/(?:span|strong)>|<[^>]+>|[^<]+)/g, (segment) => {
+    if (segment.startsWith('<')) return segment;
+
+    return segment.replace(regex, (fullMatch, prefix, matchWord) => {
+        const tooltip = tooltipList.find(t => t.searchString === matchWord);
+        const colour = colourList.find(c => c.word === matchWord);
+
+        let style = colour ? colour.style : '';
+        let innerText = matchWord;
+
+        if (colour && colour.img) {
+            innerText = `<img src="${colour.img}" class="p_icon" alt="">${innerText}`;
+        }
+
+        if (tooltip) {
+            var tooltipContent = getDynamicTooltipContent(matchWord, tooltip);
+            return prefix + `<span class='mytooltip' style='${style}'>${innerText}<span class='mytooltiptext'>${tooltipContent}</span></span>`;
+        } else if (colour) {
+            return prefix + `<span style='${style}'>${innerText}</span>`;
+        }
+
+        return prefix + matchWord;
+       });
+   });
+}
   
   // populates the checkboxes in the options view
   window.populateOptions = function() {
