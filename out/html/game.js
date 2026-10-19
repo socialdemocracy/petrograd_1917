@@ -513,7 +513,7 @@
             word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
         );
         
-        const regex = new RegExp(`\\b(${escapedWords.join('|')})\\b`, 'g');
+        const regex = new RegExp((?<!\\w)(${escapedWords.join('|')})(?!\\w), 'g');
     
         return str.replace(/(<(?:span|strong)[^>]*>.*?<\/(?:span|strong)>|<[^>]+>|[^<]+)/g, (segment) => {
             if (segment.startsWith('<')) return segment;
