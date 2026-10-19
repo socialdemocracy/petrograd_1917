@@ -411,9 +411,9 @@ Q.democrats_in_gov = 0;
 Q.in_socialist_coalition = 0;
 
 Q.prime_minister = "Lvov";
-Q.prime_minister_party = "Independent"
+Q.prime_minister_party = "I"
 Q.agriculture_minister = "Shingarev";
-Q.agriculture_minister_party = "Kadet";
+Q.agriculture_minister_party = "KD";
 Q.justice_minister = "Kerensky";
 Q.justice_minister_party = "Trudovik";
 Q.interior_minister = "Lvov";
@@ -479,7 +479,7 @@ Q.right_sr_in_exco = 0;
 Q.communist_in_exco = 0;
 
 Q.soviet_chair = "Chkheidze";
-Q.soviet_chair_party = "Menshevik";
+Q.soviet_chair_party = "RSDLP (M)";
 
 // efficacy of petrograd soviet decisions
 Q.soviet_efficacy = 0.5;
