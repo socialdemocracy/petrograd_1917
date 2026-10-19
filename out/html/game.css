@@ -249,7 +249,7 @@ blockquote + blockquote.attribution {
   text-align: center;
 }
 .mytooltip:hover .mytooltiptext { opacity: 1; }
-.mytooltip .mytooltiptext img { display: block; margin: 0 auto 4px auto; max-width: 90%; height: auto; }
+.mytooltip .mytooltiptext img { display: block; margin: 0 auto 4px auto; max-width: 90%; height: auto; border: 1px solid #DDD; border-radius: 11px; }
 
 .mytooltip .mytooltiptext {
   bottom: auto;
