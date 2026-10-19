@@ -4,7 +4,7 @@ const tooltipList = [{
 },
 {
     searchString: "SR",
-    explanationText: "<img src=img/sr.png> <br><br> Партія соціалистовъ-революціонеровъ <br><br> Party Of Socialist Revolutionaries <br><br>"
+    explanationText: "<img src=img/sr_poster.jpg> <br><br> Партія соціалистовъ-революціонеровъ <br><br> Party Of Socialist Revolutionaries <br><br>"
 },
 {
     searchString: "RSDLP (M)",
