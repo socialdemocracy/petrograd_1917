@@ -238,8 +238,7 @@ blockquote + blockquote.attribution {
   padding: 12px 14px;
   opacity: 0;
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
-  border: 2px solid #c00000;
-  outline: 2px solid #D3C24D;
+  border: 2px solid #2e59b3;
   pointer-events: none;
   font-size: 14px !important;
   line-height: 1.5em !important;
@@ -265,8 +264,7 @@ body.dark-mode .mytooltip:hover {
 body.dark-mode .mytooltip .mytooltiptext {
     background: #171515;
     color: #e0e0e0;
-    border: 2px solid #c00000;
-    outline: 2px solid #D3C24D;
+    border: 2px solid #2e59b3;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
