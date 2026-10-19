@@ -40,7 +40,7 @@ if (Q.player_party == 'm') {
     if (Q.k_in_gov) {
         Q.position += 'in government';
     } else {
-        Q.position = 'in oppsition';
+        Q.position = 'in opposition';
     }
 }
 
@@ -56,7 +56,7 @@ if (Q.m_in_gov) {
     Q.governing_parties.push("Mensheviks");
 }
 if (Q.b_in_gov) {
-    Q.governing_parties.push("Bolsheviks");
+    Q.governing_parties.push("RSDLP (B)");
 }
 Q.governing_parties_str = Q.governing_parties.join(", ");
 
@@ -81,7 +81,7 @@ if (Q.right_sr_in_exco) {
     Q.exco_parties.push("Right-SRs");
 }
 if (Q.b_in_exco) {
-    Q.exco_parties.push("Bolsheviks");
+    Q.exco_parties.push("RSDLP (B)");
 }
 if (Q.k_in_exco) {
     Q.exco_parties.push("Kadets");
@@ -136,7 +136,7 @@ Executive committee: [+ exco_parties_str +]
 
 Overal composition:
 Mensheviks: [+ m_soviet +]%
-Bolsheviks: [+ b_soviet +]%
+RSDLP (B): [+ b_soviet +]%
 SRs: [+ sr_soviet +]%
 Anarchists: [+ anarchist_soviet +]%
 Others: [+ other_soviet +]%
@@ -226,7 +226,7 @@ switch (Q.player_party) {
 [? if player_party != "m": Mensheviks: [+ m_relation : relationships +] ?]
 [? if player_party != "m": </br> Leadership: [+ m_leadership : m_leadership +] ?]
 
-[? if player_party != "b": Bolsheviks: [+ b_relation : relationships +] ?]
+[? if player_party != "b": RSDLP (B): [+ b_relation : relationships +] ?]
 [? if player_party != "b": </br> Leadership: [+ b_leadership : b_leadership +] ?]
 
 
@@ -325,11 +325,11 @@ Government legitimacy: [+ prov_gov_legitimacy : legitimacy +]
 
 Chair: [+ soviet_chair +] ([+ soviet_chair_party +])
 
-Executive committee: [? if m_in_exco: Mensheviks, ?] [? if sr_in_exco: SRs ?] [? if b_in_exco: Bolsheviks ?][? if defensist_in_exco:, Menshevik-Defensists ?][? if internationalist_in_exco:, Menshevik-Internationalists ?][? if left_sr_in_exco:, Left-SRs ?][? if right_sr_in_exco:, Right-SRs ?]
+Executive committee: [? if m_in_exco: Mensheviks, ?] [? if sr_in_exco: SRs ?] [? if b_in_exco: RSDLP (B) ?][? if defensist_in_exco:, Menshevik-Defensists ?][? if internationalist_in_exco:, Menshevik-Internationalists ?][? if left_sr_in_exco:, Left-SRs ?][? if right_sr_in_exco:, Right-SRs ?]
 
 Overal composition:
 Mensheviks: [+ m_soviet +]%
-Bolsheviks: [+ b_soviet +]%
+RSDLP (B): [+ b_soviet +]%
 SRs: [+ sr_soviet +]%
 Anarchists: [+ anarchist_soviet +]%
 Others: [+ other_soviet +]%
@@ -446,7 +446,7 @@ title: Internal Security
 
 Workers' militias: [+ workers_militia_strength +] thousand
 
-Workers' militia allegiance: Mensheviks: [+ workers_militia_m_loyalty : strength_2 +], Bolsheviks: [+ workers_militia_b_loyalty : strength_2 +], SRs: [+ workers_militia_sr_loyalty : strength_2 +], Independent: [+ workers_militia_independent : strength_2 +]
+Workers' militia allegiance: Mensheviks: [+ workers_militia_m_loyalty : strength_2 +], RSDLP (B): [+ workers_militia_b_loyalty : strength_2 +], SRs: [+ workers_militia_sr_loyalty : strength_2 +], Independent: [+ workers_militia_independent : strength_2 +]
 [? if right_sr_split: Right-SRs: [+ workers_militia_right_sr_loyalty : strength_2 +] ?]
 [? if left_sr_split: Left-SRs: [+ workers_militia_left_sr_loyalty : strength_2 +] ?]
 
@@ -456,7 +456,7 @@ City militia allegiance: Mensheviks: [+ city_militia_m_loyalty : strength_2 +], 
 
 Garrison: [+ garrison_strength +] thousand
 
-Garrison allegiance: Mensheviks: [+ garrison_m_loyalty : strength +], Bolsheviks: [+ garrison_b_loyalty : strength +], Kadets: [+ garrison_k_loyalty : strength +], SRs: [+ garrison_sr_loyalty : strength +], Independent: [+ garrison_independent : strength +]
+Garrison allegiance: Mensheviks: [+ garrison_m_loyalty : strength +], RSDLP (B): [+ garrison_b_loyalty : strength +], Kadets: [+ garrison_k_loyalty : strength +], SRs: [+ garrison_sr_loyalty : strength +], Independent: [+ garrison_independent : strength +]
 [? if defensist_split: Menshevik-Defensists: [+ garrison_defensist_loyalty : strength_2 +] ?]
 [? if internationalist_split: Menshevik-Internationalists: [+ garrison_internationalist_loyalty : strength_2 +] ?]
 [? if right_sr_split: Right-SRs: [+ garrison_right_sr_loyalty : strength_2 +] ?]
