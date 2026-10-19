@@ -113,28 +113,6 @@
     };
   
     //To get a value 
-    function getRelationshipText(value) {
-        if (value === undefined || value === null) return '';
-        if (value <= 5) return '<span style="color: #FF0000;">Hostile</span>';
-        if (value <= 14.9) return '<span style="color: #FF4500;">Frigid</span>';
-        if (value <= 29.9) return '<span style="color: #FF8C00;">Cold</span>';
-        if (value <= 39.9) return '<span style="color: #FFA500;">Cool</span>';
-        if (value <= 54.9) return '<span style="color: #FFD700;">Neutral</span>';
-        if (value <= 64.9) return '<span style="color: #9ACD32;">Warm</span>';
-        if (value <= 74.9) return '<span style="color: #32CD32;">Friendly</span>';
-        return '<span style="color: #008000;">Very friendly</span>';
-    }
-
-    function getStatusText(value) {
-        if (value === undefined || value === null) return '';
-        if (value === 0) return '<span style="color: #9E9E9E;">Not Formed</span>';
-        if (value === 1) return '<span style="color: #8B0000;">Active</span>';
-        if (value === 2) return '<span style="color: #4F6F8F;">Disbanded</span>';
-        if (value === 3) return '<span style="color: #556B2F;">Disarmed</span>';
-        if (value === 4) return '<span style="color: #6A0DAD;">Amalgamated into the ENLF</span>';
-        return 'Unknown';
-    }
-  
     function getSizeText(value) {
         if (value === undefined || value === null) return '';
         if (value <= 20) return '<span style="color: #6B7280;">Minimal</span>';
@@ -239,10 +217,9 @@
             return baseTooltip.explanationText + '<br>' + proptext + '% of the population';
         }
         
-        if (searchString === 'SLPP' && Q.slpp_relation !== undefined) {
-            var relationText = getRelationshipText(Q.slpp_relation);
-            var ideologyText = getIdeologyText(Q.slpp_ideology);
-            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText + '<br>Relation: ' + relationText;
+        if (searchString === 'RSDLP (B)' && Q.b_relation !== undefined) {
+            var ideologyText = getIdeologyText(Q.b_ideology);
+            return baseTooltip.explanationText + '<br>Ideology: ' + ideologyText;
         }
 
         if (searchString === 'Left' ) {
