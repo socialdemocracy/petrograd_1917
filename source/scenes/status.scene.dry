@@ -50,7 +50,7 @@ if (Q.k_in_gov) {
     Q.governing_parties.push("Kadets");
 }
 if (Q.sr_in_gov) {
-    Q.governing_parties.push("SRs");
+    Q.governing_parties.push("SR");
 }
 if (Q.m_in_gov) {
     Q.governing_parties.push("RSDLP (M)");
@@ -72,13 +72,13 @@ if (Q.internationalist_in_exco) {
     Q.exco_parties.push("Menshevik-Internationalists");
 }
 if (Q.sr_in_exco) {
-    Q.exco_parties.push("SRs");
+    Q.exco_parties.push("SR");
 }
 if (Q.left_sr_in_exco) {
-    Q.exco_parties.push("Left-SRs");
+    Q.exco_parties.push("Left-SR");
 }
 if (Q.right_sr_in_exco) {
-    Q.exco_parties.push("Right-SRs");
+    Q.exco_parties.push("Right-SR");
 }
 if (Q.b_in_exco) {
     Q.exco_parties.push("RSDLP (B)");
@@ -137,13 +137,13 @@ Executive committee: [+ exco_parties_str +]
 Overal composition:
 RSDLP (M): [+ m_soviet +]%
 RSDLP (B): [+ b_soviet +]%
-SRs: [+ sr_soviet +]%
+SR: [+ sr_soviet +]%
 Anarchists: [+ anarchist_soviet +]%
 Others: [+ other_soviet +]%
 [? if defensist_split: Menshevik-Defensists: [+ defensist_soviet_votes_dec +]% ?]
 [? if internationalist_split: Menshevik-Internationalists: [+ internationalist_soviet_votes_dec +]% ?]
-[? if right_sr_split: Right-SRs: [+ right_sr_soviet_votes_dec +]% ?]
-[? if left_sr_split: Left-SRs: [+ left_sr_soviet_votes_dec +]% ?]
+[? if right_sr_split: Right-SR: [+ right_sr_soviet_votes_dec +]% ?]
+[? if left_sr_split: Left-SR: [+ left_sr_soviet_votes_dec +]% ?]
 
 = Peace
 
@@ -230,7 +230,7 @@ switch (Q.player_party) {
 [? if player_party != "b": </br> Leadership: [+ b_leadership : b_leadership +] ?]
 
 
-[? if player_party != "sr": SRs: [+ sr_relation : relationships +] ?]
+[? if player_party != "sr": SR: [+ sr_relation : relationships +] ?]
 [? if player_party != "sr": </br> Leadership: [+ sr_leadership : sr_leadership +] ?]
 
 
@@ -325,18 +325,18 @@ Government legitimacy: [+ prov_gov_legitimacy : legitimacy +]
 
 Chair: [+ soviet_chair +] ([+ soviet_chair_party +])
 
-Executive committee: [? if m_in_exco: RSDLP (M), ?] [? if sr_in_exco: SRs ?] [? if b_in_exco: RSDLP (B) ?][? if defensist_in_exco:, Menshevik-Defensists ?][? if internationalist_in_exco:, Menshevik-Internationalists ?][? if left_sr_in_exco:, Left-SRs ?][? if right_sr_in_exco:, Right-SRs ?]
+Executive committee: [? if m_in_exco: RSDLP (M), ?] [? if sr_in_exco: SR ?] [? if b_in_exco: RSDLP (B) ?][? if defensist_in_exco:, Menshevik-Defensists ?][? if internationalist_in_exco:, Menshevik-Internationalists ?][? if left_sr_in_exco:, Left-SR ?][? if right_sr_in_exco:, Right-SR ?]
 
 Overal composition:
 RSDLP (M): [+ m_soviet +]%
 RSDLP (B): [+ b_soviet +]%
-SRs: [+ sr_soviet +]%
+SR: [+ sr_soviet +]%
 Anarchists: [+ anarchist_soviet +]%
 Others: [+ other_soviet +]%
 [? if defensist_split: Menshevik-Defensists: [+ defensist_soviet_votes_dec +]% ?]
 [? if internationalist_split: Menshevik-Internationalists: [+ internationalist_soviet_votes_dec +]% ?]
-[? if right_sr_split: Right-SRs: [+ right_sr_soviet_votes_dec +]% ?]
-[? if left_sr_split: Left-SRs: [+ left_sr_soviet_votes_dec +]% ?]
+[? if right_sr_split: Right-SR: [+ right_sr_soviet_votes_dec +]% ?]
+[? if left_sr_split: Left-SR: [+ left_sr_soviet_votes_dec +]% ?]
 
 Soviet efficacy: [+ soviet_efficacy : efficacy +]
 
@@ -446,21 +446,21 @@ title: Internal Security
 
 Workers' militias: [+ workers_militia_strength +] thousand
 
-Workers' militia allegiance: RSDLP (M): [+ workers_militia_m_loyalty : strength_2 +], RSDLP (B): [+ workers_militia_b_loyalty : strength_2 +], SRs: [+ workers_militia_sr_loyalty : strength_2 +], Independent: [+ workers_militia_independent : strength_2 +]
-[? if right_sr_split: Right-SRs: [+ workers_militia_right_sr_loyalty : strength_2 +] ?]
-[? if left_sr_split: Left-SRs: [+ workers_militia_left_sr_loyalty : strength_2 +] ?]
+Workers' militia allegiance: RSDLP (M): [+ workers_militia_m_loyalty : strength_2 +], RSDLP (B): [+ workers_militia_b_loyalty : strength_2 +], SR: [+ workers_militia_sr_loyalty : strength_2 +], Independent: [+ workers_militia_independent : strength_2 +]
+[? if right_sr_split: Right-SR: [+ workers_militia_right_sr_loyalty : strength_2 +] ?]
+[? if left_sr_split: Left-SR: [+ workers_militia_left_sr_loyalty : strength_2 +] ?]
 
 City militias: [+ city_militia_strength +] thousand
 
-City militia allegiance: RSDLP (M): [+ city_militia_m_loyalty : strength_2 +], Kadets: [+ city_militia_k_loyalty : strength_2 +], SRs: [+ city_militia_sr_loyalty : strength_2 +], Independent: [+ city_militia_independent : strength_2 +]
+City militia allegiance: RSDLP (M): [+ city_militia_m_loyalty : strength_2 +], Kadets: [+ city_militia_k_loyalty : strength_2 +], SR: [+ city_militia_sr_loyalty : strength_2 +], Independent: [+ city_militia_independent : strength_2 +]
 
 Garrison: [+ garrison_strength +] thousand
 
-Garrison allegiance: RSDLP (M): [+ garrison_m_loyalty : strength +], RSDLP (B): [+ garrison_b_loyalty : strength +], Kadets: [+ garrison_k_loyalty : strength +], SRs: [+ garrison_sr_loyalty : strength +], Independent: [+ garrison_independent : strength +]
+Garrison allegiance: RSDLP (M): [+ garrison_m_loyalty : strength +], RSDLP (B): [+ garrison_b_loyalty : strength +], Kadets: [+ garrison_k_loyalty : strength +], SR: [+ garrison_sr_loyalty : strength +], Independent: [+ garrison_independent : strength +]
 [? if defensist_split: Menshevik-Defensists: [+ garrison_defensist_loyalty : strength_2 +] ?]
 [? if internationalist_split: Menshevik-Internationalists: [+ garrison_internationalist_loyalty : strength_2 +] ?]
-[? if right_sr_split: Right-SRs: [+ garrison_right_sr_loyalty : strength_2 +] ?]
-[? if left_sr_split: Left-SRs: [+ garrison_left_sr_loyalty : strength_2 +] ?]
+[? if right_sr_split: Right-SR: [+ garrison_right_sr_loyalty : strength_2 +] ?]
+[? if left_sr_split: Left-SR: [+ garrison_left_sr_loyalty : strength_2 +] ?]
 
 [? if loyal_troops > 0 : Loyal troops (Battalions of Death): [+ loyal_troops_strength +] thousand ?]
 
