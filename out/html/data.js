@@ -1,11 +1,11 @@
 const tooltipList = [{
-    searchString: "SLFP",
-    explanationText: "<img src=bund_poster.jpg> Death Party"
+    searchString: "RSDLP (B)",
+    explanationText: "<img src=rsdlp_bolshevik_poster.jpeg> Российская социал-демократическая рабочая партия (большевики) <br> Russian Social Democratic Labour Party (Bolsheviks) <br><br>"
 }];
 
 
 const colourList = [{
-        word: "SLFP",
-        style: "color: #BA0000; font-weight: bold;",
+        word: "RSDLP (B)",
+        style: "color: var (--b-color); font-weight: bold;",
     }
 ];
