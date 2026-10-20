@@ -7,6 +7,10 @@ const tooltipList = [{
     explanationText: "<img src=img/sr_poster.jpg> <br><br> Партія соціалистовъ-революціонеровъ <br><br> Party Of Socialist Revolutionaries <br><br>"
 },
 {
+    searchString: "Esers",
+    explanationText: "<img src=img/sr_poster.jpg> <br><br> Партія соціалистовъ-революціонеровъ <br><br> Party Of Socialist Revolutionaries <br><br>"
+},
+{
     searchString: "RSDLP (M)",
     explanationText: "<img src=img/rsdlp_menshevik_poster.jpeg> <br><br> Российская социал-демократическая рабочая партия (меньшевики) <br><br> Russian Social Democratic Labour Party (Mensheviks) <br><br>"
 },
@@ -38,6 +42,10 @@ const colourList = [{
    },
     {
         word: "SR",
+        style: "color: var(--sr); font-weight: bold;",
+   },
+    {        
+        word: "Esers",
         style: "color: var(--sr); font-weight: bold;",
    },
     {
