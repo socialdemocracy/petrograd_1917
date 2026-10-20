@@ -13,8 +13,7 @@ const tooltipList = [{
 
 
 const colourList = [{
-        word: "RSDLP (B)",
-        style: "color: var(--b); font-weight: bold;",
+    { words: ["RSDLP (B)", "Bolsheviks"], style: "color: var(--b); font-weight: bold;" },
    },
     {
         word: "Anarchists",
@@ -29,7 +28,6 @@ const colourList = [{
         style: "color: var(--other); font-weight: bold;",
    },
     {
-        word: "RSDLP (M)",
-        style: "color: var(--m); font-weight: bold;"
+       { words: ["RSDLP (M)", "Mensheviks"], style: "color: var(--m); font-weight: bold;" },
     }
 ];
