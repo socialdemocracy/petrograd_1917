@@ -9,11 +9,28 @@ const tooltipList = [{
 {
     searchString: "RSDLP (M)",
     explanationText: "<img src=img/rsdlp_menshevik_poster.jpeg> <br><br> Российская социал-демократическая рабочая партия (меньшевики) <br><br> Russian Social Democratic Labour Party (Mensheviks) <br><br>"
+},
+{
+    searchString: "Mensheviks",
+    explanationText: "<img src=img/rsdlp_menshevik_poster.jpeg> <br><br> Российская социал-демократическая рабочая партия (меньшевики) <br><br> Russian Social Democratic Labour Party (Mensheviks) <br><br>"
+},
+{
+    searchString: "RSDLP (B)",
+    explanationText: "<img src=img/rsdlp_bolshevik_poster.jpeg> <br><br> Российская социал-демократическая рабочая партия (большевики) <br><br> Russian Social Democratic Labour Party (Bolsheviks) <br><br>"
 }];
 
 
 const colourList = [{
-    { words: ["RSDLP (B)", "Bolsheviks"], style: "color: var(--b); font-weight: bold;" },
+        word: "RSDLP (B)",
+        style: "color: var(--b); font-weight: bold;",
+   },
+    {        
+        word: "Bolsheviks",
+        style: "color: var(--b); font-weight: bold;",
+   },
+    {        
+        word: "Mensheviks",
+        style: "color: var(--m); font-weight: bold;",
    },
     {
         word: "Anarchists",
@@ -28,6 +45,7 @@ const colourList = [{
         style: "color: var(--other); font-weight: bold;",
    },
     {
-       { words: ["RSDLP (M)", "Mensheviks"], style: "color: var(--m); font-weight: bold;" },
+        word: "RSDLP (M)",
+        style: "color: var(--m); font-weight: bold;"
     }
 ];
