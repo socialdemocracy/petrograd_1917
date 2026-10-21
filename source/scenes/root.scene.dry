@@ -479,7 +479,7 @@ Q.right_sr_in_exco = 0;
 Q.communist_in_exco = 0;
 
 Q.soviet_chair = "Chkheidze";
-Q.soviet_chair_party = "RSDLP (M)";
+Q.soviet_chair_party = "Mensheviks";
 
 // efficacy of petrograd soviet decisions
 Q.soviet_efficacy = 0.5;
