@@ -114,7 +114,7 @@ Internal dissent:
 
 = [+ government_form : government_form +]
 
-Prime Minister: [+ prime_minister +] ([+ prime_minister_party +])
+Prime Minister: [?if prime_minister_party == "Menshevik": <span style="color: var(--m);">[+ prime_minister +]</span>?][?if prime_minister_party == "Bolshevik": <span style="color: var(--b);">[+ prime_minister +]</span>?][?if prime_minister_party == "I": <span style="color: var(--other);">[+ prime_minister +]</span>?][?if prime_minister_party == "Kadet": <span style="color: var(--k);">[+ prime_minister +]</span>?] ([+ prime_minister_party +])
 
 Parties in government: [+ governing_parties_str +]
 
