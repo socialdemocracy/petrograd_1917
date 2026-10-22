@@ -128,7 +128,7 @@ Budget: [+ budget +]
 
 = Petrograd Soviet
 
-Chair: [+ soviet_chair +] ([+ soviet_chair_party +])
+Chair: [?if soviet_chair_party == "Menshevik": <span style="color: var(--m);">[+ soviet_chair +]</span>?][?if soviet_chair_party == "Bolshevik": <span style="color: var(--b);">[+ soviet_chair +]</span>?][?if soviet_chair_party == "I": <span style="color: var(--other);">[+ soviet_chair +]</span>?][?if soviet_chair_party == "Kadet": <span style="color: var(--k);">[+ soviet_chair +]</span>?] ([+ soviet_chair_party +])
 
 Executive committee: [+ exco_parties_str +]
 
