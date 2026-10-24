@@ -182,22 +182,24 @@ blockquote + blockquote.attribution {
   max-width: 69em;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  margin: 0 auto
 }
 .tools {
-  padding: 0.6em;
-  width: 14rem;
-  color: var(--text-color);
-  background-color: var(--content-bg-color);
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+    padding: .6em;
+    width: 14rem;
+    color: var(--text-color);
+    background-color: var(--content-bg-color);
+    box-shadow: 2px 2px 12px #0003
 }
+
 .tools.left {
-  float: left;
-  left: 0.4em;
+    float: left;
+    left: .4em
 }
+
 .tools.right {
-  float: right;
-  right: 0.4em;
+    float: right;
+    right: .4em
 }
 #qualities {
   text-indent: 0;
